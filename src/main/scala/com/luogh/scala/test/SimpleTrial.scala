@@ -23,11 +23,6 @@ object SimpleTrial {
     tryLogNonFatalError(()=>throw new RuntimeException("test"))// 传值调用
     tryLogNonFatalError_1(throw new RuntimeException("test")) // 传名调用
 
-    val list = List(Teacher("teacher"),IT("LUOGUO"),"ASASD",11)
-    list.collect(partialFunctionTest("tes")).foreach(println _)
-    println(partialFunctionTest("test").isDefinedAt(11)) // false
-    println(partialFunctionTest("test").isDefinedAt(IT("luogh"))) //true
-    println(partialFunctionTest("test").applyOrElse(11,(x:Int)=>12)) //12
   }
 
 case class Male(name:String,age:Int);
@@ -120,17 +115,4 @@ case class Male(name:String,age:Int);
       case e:Throwable => throw e
     }
   }
-
-  def partialFunctionTest(key:Any):PartialFunction[Any,Any] = {
-    //scala模式匹配允许将提取器匹配成功的实例绑定到一个变量上，这个变量有着和
-    //提取器所接受的对象相同的类型，通过@操作符实现。
-    case e @ IT(name) => println(s"IT NAME:${name}") ; e
-    case e: Teacher => e
-    case e:String => e
-  }
-
-  sealed abstract class Career(name:String)
-  case class IT(name:String) extends Career(name)
-  case class Teacher(name:String) extends Career(name)
-  case class Farmer(name:String) extends Career(name)
 }
