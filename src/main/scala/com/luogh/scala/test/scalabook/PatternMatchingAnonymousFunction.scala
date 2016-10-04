@@ -3,7 +3,6 @@ package com.luogh.scala.test.scalabook
 /**
   * 模式匹配与匿名函数
   * @author luogh 
-  * @date 2016/10/2
   */
 object PatternMatchingAnonymousFunction {
 
@@ -106,8 +105,18 @@ object PatternMatchingAnonymousFunction {
        case (name,freq) if freq > 4 && freq < 30 => name
      }
 
-
   wordsWithoutOutliers2(wordFrequencies)
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////// 链接偏函数 ///////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////
+
+  /**
+    * 匿名函数那一章提到过，偏函数可以被用来创建责任链： PartialFunction 上的 orElse
+    * 方法允许链接任意个偏函数，从而组合出一个新的偏函数。 不过，只有在一个偏函数没有
+    * 为给定输入定义的时候，才会把责任传递给下一个偏函数。 从而可以做下面这样的事情：
+    *  val handler = fooHandler orElse barHandler orElse bazHandler
+    */
   def main(args:Array[String]):Unit = {
     PatternMatchingAnonymousFunction
   }
