@@ -9,6 +9,8 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import org.apache.spark.unsafe.Platform;
+import sun.misc.Unsafe;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

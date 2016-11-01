@@ -1,5 +1,6 @@
 package com.luogh.tunning.spark
 
+import org.apache.spark.scheduler.{SparkListener}
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -13,6 +14,7 @@ object LocalModelApp {
   }
 
   def submitSparkJob():Unit = {
+
     val sparkConf = new SparkConf
     sparkConf.set("spark.logConf","true")
              .setAppName("first test")
@@ -20,6 +22,9 @@ object LocalModelApp {
              .setMaster("local[*]")
              .set("spark.eventLog.dir","D:\\tmp\\spark_eventLog")
     val sc = new SparkContext(sparkConf)
+    sc.addSparkListener(new SparkListener(){
+
+    })
     val rdd = sc.textFile("file:///data/test_data.gz")
     val finalRdd = rdd.filter(_.length > 10).flatMap(_.split(" "))
     val resultList = finalRdd.take(100)
