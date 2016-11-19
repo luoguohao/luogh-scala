@@ -51,7 +51,7 @@ object DDCStat {
     rowDetailList
   }
 
-  def outputDetail(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_20161015_detail"): Unit = {
+  def outputDetail(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_detail"): Unit = {
     val printer = new PrintWriter(new FileOutputStream(fileName))
     printer.println("作业ID\t邮箱\t任务序列号\t任务开始时间\t任务类型\t任务结果数\t任务状态")
     list.foreach {
@@ -86,7 +86,7 @@ object DDCStat {
     printer.close()
   }
 
-  def outputStatisticByTaskType(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_20161015_statistic_byTaskType"): Unit = {
+  def outputStatisticByTaskType(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_statistic_byTaskType"): Unit = {
     val printer = new PrintWriter(new FileOutputStream(fileName))
     printer.println("任务类型\t执行次数")
     val set = list.filter(_.status == TaskStatus.SUCCEEDED).map {
@@ -109,7 +109,7 @@ object DDCStat {
     printer.close()
   }
 
-  def outputStatisticByEmail(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_20161015_statistic_byEmail"): Unit = {
+  def outputStatisticByEmail(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_statistic_byEmail"): Unit = {
     val printer = new PrintWriter(new FileOutputStream(fileName))
     printer.println("邮箱\t执行次数")
     val set = list.map {
@@ -139,10 +139,10 @@ object DDCStat {
   }
 
   def main(args: Array[String]): Unit = {
-    val iter = stat("C:\\Users\\luogh\\Desktop\\ddc_stat_20161021")
+    val iter = stat("C:\\Users\\luogh\\Desktop\\ddc_stat_detail")
     val (iter1, iter2) = iter.duplicate
 //    outputDetail(iter1)
 //    outputStatistic(iter2)
-//    outputStatisticByTaskType(iter2)
+    outputStatisticByTaskType(iter2)
   }
 }

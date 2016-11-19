@@ -10,7 +10,7 @@ import scala.util.control.NonFatal
 /**
   * @author luogh 
   */
-object SimpleTrial {
+object CallByNameTrial {
 
   def main(args:Array[String]):Unit = {
 //    packagePrivilegeTest()

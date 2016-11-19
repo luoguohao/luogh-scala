@@ -1,5 +1,7 @@
 package com.luogh.test.scalabook
 
+import scala.annotation.tailrec
+
 /**
   * 类型Either
   * ref:http://udn.yyuap.com/doc/guides-to-scala-book/chp7-the-either-type.html
@@ -116,5 +118,6 @@ object EitherType {
 
   def main(args:Array[String]):Unit = {
     EitherType
+
   }
 }

@@ -13,8 +13,7 @@ import scala.collection.JavaConverters._
 import scala.reflect.ClassTag
 
 /**
-  * @author luogh 
-  * @date 2016/9/28
+  * @author luogh
   */
 class SimpleTrialTestSuite extends FunSuite with BeforeAndAfterAll  with Matchers {
 
@@ -77,5 +76,10 @@ class SimpleTrialTestSuite extends FunSuite with BeforeAndAfterAll  with Matcher
     </svg></div> .toString.filter(_ != '\n')
 
     println(JOBS_LEGEND)
+  }
+
+  test("seq ") {
+    val seq: Seq[Int] = Array(1, 2, 4, 5)
+    val s = Traversable(1,2,3)
   }
 }
