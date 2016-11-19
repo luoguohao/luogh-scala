@@ -5,6 +5,8 @@ import com.luogh.test.HigherKinder.Reduce._
 import com.luogh.test.Normal.Add
 import com.luogh.test.Normal.Add._
 
+import scala.language.higherKinds
+
 
 /**
   * Higher-Kinder Type

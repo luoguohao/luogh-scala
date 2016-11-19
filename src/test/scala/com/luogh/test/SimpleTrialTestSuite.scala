@@ -33,7 +33,7 @@ class SimpleTrialTestSuite extends FunSuite with BeforeAndAfterAll  with Matcher
     val regex = """local\[([0-9]+|\*)\]""".r
     val master = "local[*]"
     master match {
-      case regex(threadNum) => println(s"threadNum:${threadNum}")
+      case regex(threadNum) => println(s"threadNum:$threadNum")
       case _ => println("not match")
     }
   }

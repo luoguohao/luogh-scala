@@ -13,12 +13,11 @@ object CovariantParameterTypeTrial {
 
     def dispenseNext(): VendingMachine[A] =
       items match {
-        case Nil => {
+        case Nil =>
           if (currentItem.isDefined)
             new VendingMachine(None, Nil)
           else
             this
-        }
         case t :: ts => {
           new VendingMachine(Some(t), ts)
         }
@@ -69,15 +68,14 @@ object CovariantParameterTypeTrial {
 
   final class AmmoMagazine[+A <: Bullet](private[this] var bullets: List[A]) {
 
-    def hasBullets: Boolean = !bullets.isEmpty
+    def hasBullets: Boolean = bullets.nonEmpty
 
     def giveNextBullet(): Option[A] =
       bullets match {
         case Nil => None
-        case t :: ts => {
+        case t :: ts =>
           bullets = ts
           Some(t)
-        }
       }
   }
 

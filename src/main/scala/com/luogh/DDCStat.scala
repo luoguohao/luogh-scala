@@ -79,7 +79,7 @@ object DDCStat {
     }
     set.foreach {
       case ((email, taskType), taskCount) =>
-        printer.println(s"${email}\t${taskType}\t${taskCount}")
+        printer.println(s"$email\t$taskType\t$taskCount")
       case _ =>
     }
     printer.flush()

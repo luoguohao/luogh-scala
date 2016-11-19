@@ -24,7 +24,7 @@ object CallByNameTrial {
 
   }
 
-case class Male(name:String,age:Int);
+case class Male(name:String,age:Int)
 
   def packagePrivilegeTest(): Unit ={
     val person = new Person
@@ -32,10 +32,10 @@ case class Male(name:String,age:Int);
     val name = person.getClass.getMethod("name").invoke(person)
     // val id = person.getClass.getMethod("id").invoke(person) //cant find id method,because its private.
     println(s"age:${person.age}")
-    println(s"name:${name}")
+    println(s"name:$name")
     person.getClass.getMethod("name_$eq",classOf[String]).invoke(person,"new name")
     val newName = person.getClass.getMethod("name").invoke(person)
-    println(s"newName:${newName}")
+    println(s"newName:$newName")
     println(s"sex:${person.sex}")
 
     // method
@@ -81,7 +81,7 @@ case class Male(name:String,age:Int);
 
   def getRuntimeClass[K:ClassTag](arr:Array[K]) = {
     val className = reflect.classTag[K].runtimeClass.getName
-    println(s"className:${className}")
+    println(s"className:$className")
   }
 
 
