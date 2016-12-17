@@ -86,7 +86,7 @@ object DDCStat {
     printer.close()
   }
 
-  def outputStatisticByTaskType(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_statistic_byTaskType"): Unit = {
+  def outputStatisticByTaskType(list: Iterator[DDCStat.RowData], fileName: String = "ddc_stat_statistic_byTask_Type"): Unit = {
     val printer = new PrintWriter(new FileOutputStream(fileName))
     printer.println("任务类型\t执行次数")
     val set = list.filter(_.status == TaskStatus.SUCCEEDED).map {
