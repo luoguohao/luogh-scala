@@ -1,3 +1,4 @@
+
 package com.luogh
 
 import java.io.{File, PrintStream}
@@ -9,8 +10,9 @@ import scala.io.Source
   */
 object Encoder {
   def main(args: Array[String]): Unit = {
-    encode()
+//    encode()
     decode()
+//    test()
   }
 
   def decode(file: File = new File("C:\\Users\\luogh\\Desktop\\security_enc.bin")): Unit = {
@@ -35,6 +37,15 @@ object Encoder {
     }
     val writer = new PrintStream(desFile)
     result.foreach(writer.println)
+  }
+
+  def test(): Unit = {
+    val list = List((1, 2 ,3), (2, 3 ,4))
+    val test = list.map(x => x.productIterator.toList).reduceLeft {(x, y) => x.zip(y)}
+    test.map{ x =>
+      val temp = x.asInstanceOf[Tuple2[Int, Int]]
+      temp._1 + temp._2
+    }.foreach(println)
   }
 
 }
