@@ -1,6 +1,6 @@
-package cn.slimsmart.protoc.demo;
+package com.luogh.protoc.demo;
 
-import cn.slimsmart.protoc.demo.rpc.Message;
+import com.luogh.protoc.demo.rpc.Message;
 import com.google.protobuf.RpcCallback;
 import com.googlecode.protobuf.pro.duplex.CleanShutdownHandler;
 import com.googlecode.protobuf.pro.duplex.PeerInfo;
